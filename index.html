@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Location</title>
+</head>
+<body>
+    <button id="getLocation" onclick="getLocation()">
+        Get Location
+    </button>
+</body>
+<script>
+    const getLocation = ()=>{
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const {latitude , longitude} = position.coords;
+
+            const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
+
+            let res = await fetch(url);
+
+            let data = await res.json();
+
+            console.log(data.display_name)
+        })
+    }
+</script>
+</html>

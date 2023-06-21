@@ -9,9 +9,13 @@
     <button id="getLocation" onclick="getLocation()">
         Get Location
     </button>
+
+    <h3>Your Current Location:</h3>
+    <span id="currLocationSpan"></span>
 </body>
 <script>
     const getLocation = ()=>{
+        let currLocationSpan = document.getElementById('currLocationSpan');
         navigator.geolocation.getCurrentPosition(async (position) => {
             const {latitude , longitude} = position.coords;
 
@@ -22,6 +26,8 @@
             let data = await res.json();
 
             console.log(data.display_name)
+
+            currLocationSpan.innerText = data.display_name;
         })
     }
 </script>

@@ -6,12 +6,14 @@
     <title>Get Location</title>
 </head>
 <body>
-    <button id="getLocation" onclick="getLocation()">
-        Get Location
-    </button>
-
-    <h3>Your Current Location:</h3>
-    <span id="currLocationSpan"></span>
+    <div class="container" style="display: flex; flex-direction: column; justify-content: center;align-items: center;width: 100vw;height: 100vh;overflow: hidden; background-color: rgb(249, 255, 255);">
+        <button id="getLocation" onclick="getLocation()" style="padding: 10px 15px; color: white;background-color: rgb(48, 96, 0); font-size: 24px;border-radius: 5px; border: none;">
+            Get Location
+        </button>
+    
+        <h3>Your Current Location:</h3>
+        <span id="currLocationSpan">Click on Get Location to View Your Location</span>
+    </div>
 </body>
 <script>
     const getLocation = ()=>{
